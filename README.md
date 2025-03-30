@@ -83,11 +83,22 @@ The application will be available at:
 
 The app enables a clinician to see a list of schedule options, inspect the details of each option, and select a desired option.
 
+Challenges and approaches are:
+1) There are multiple clinicians, so we must create multiple schedule options for each clinician
+2) The schedule computation is time-intensive, so we can pre-compute the schedule options on the backend.
+3) After a clinician makes a selection, the backend must update the options for other clinicians. During this period, other clinicians must wait for the update to finish.
+
 
 ## Design decisions
 
+The front-end UX for the clinician would be they first provide their ID. Based on the ID, the frontend will request the backend to check if the ID exists. If  it does, the user will move to the scheduling page as shown in the provided sample image. On this page the user may view the details of various schedule options and select one schedule option. The user can keep an option selected but view details of different options. If another clinician made a selection, then the current clinician should see a "Schedule Stale" message and wait for an updated schedule. 
+
+On the backend, we can precompute the schedules when the data is loaded initially and store them for retrieval. Every time a clinician selects a schedule, we can update or recompute the schedules for other physicians. We would need to maintain a flag that indicated if the schedules are up-to-date. This flag would be checked every time a clinician tries to select a schedule option.
 
 ## Assumptions
 
+I assumed that all clinicians and patients in the dataset were in California
 
 ## Sources
+
+Google, Stackoverflow, and Next.js api documentation. I tried to use chatgpt to help with the scheduling algorthm but could not find a solution in time. 
