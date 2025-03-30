@@ -77,3 +77,17 @@ The application will be available at:
 | Craft and Quality | - Usable and intuitive UI/UX<br>- Presence and severity of bugs | 20% |
 | Documentation | - Clear communication of logic and technical decisions in README | 10% |
 | Testing | - Presence of tests<br>- Quality and robustness of tests | 10% |
+
+
+## Approach and challenge
+
+The app enables a clinician to see a list of schedule options, inspect the details of each option, and select a desired option.
+
+
+## Design decisions
+
+
+## Assumptions
+
+
+## Sources
